@@ -1,0 +1,11 @@
+*pyc
+*.pyo
+*.mo
+.idea
+.idea/*
+*.sw*
+.DS_Store*
+.project
+.pydevproject
+.DS_Store
+_book
