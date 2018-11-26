@@ -7,5 +7,6 @@
 
 * python脚本
     * [身份证尾号校验](doc/id_number_verify.md)
+    * [excel配置生成lua配置](doc/trans_config.md)
 
 

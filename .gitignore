@@ -9,3 +9,4 @@
 .pydevproject
 .DS_Store
 _book
+config_lua
