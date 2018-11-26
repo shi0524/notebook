@@ -1,6 +1,8 @@
 
 # 将excel配置转换成lua配置
 
+#### trans_config.py  [下载](../python_script/id_number_verify.py)
+
 
 ### 格式说明
 ```
