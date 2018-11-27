@@ -190,6 +190,34 @@ mapping = {
 """ #####################    转换模板    #####################"""
 
 
+""" #####################    配置特殊转换模板    #####################"""
+
+
+def language_mapping(config):
+    """ 和语言相关的配置转换
+        MUITL_LAN = {'0': 'TW', '1': 'CN', '2': 'EN'}
+    """
+    mapping_config = {
+        '0': {},
+        '1': {},
+        '2': {},
+    }
+
+    for v in config.itervalues():
+        error_id = v['error_id']
+        mapping_config['0'][error_id] = v['traditional_chinese']
+        mapping_config['1'][error_id] = v['chinese']
+        mapping_config['2'][error_id] = v['english']
+    return mapping_config
+
+
+mapping_special = {
+    'language_mapping': language_mapping,           # 语言转换的配置
+}
+
+""" #####################    配置特殊转换模板    #####################"""
+
+
 def trans_header(sheet_title, sheet_iter):
     headers = {}
     sheet_headers_mapping = {}
@@ -227,6 +255,11 @@ def mapping_func(sheet_sort, value):
     return v
 
 
+def mapping_special_func(sheet_sort, value):
+    v = mapping_special[sheet_sort](value)
+    return v
+
+
 def trans(sheet_title, mapping, sheet_iter, special_func_name):
     if special_func_name:
         special_func = mapping[special_func_name]
@@ -257,7 +290,8 @@ def trans(sheet_title, mapping, sheet_iter, special_func_name):
                     for s_sort in sheet_sort:
                         v = mapping_func(s_sort, v)
                 if 'only_one' in sheet_sort:
-                    config[field] = v
+                    if v:
+                        config[field] = v
                 elif 'uk' in sheet_sort:
                     data['uk'] = v
                 else:
@@ -270,6 +304,10 @@ def trans(sheet_title, mapping, sheet_iter, special_func_name):
             raise KeyError('3excel:%s row_index:%s field:%s sheet_sort:%s value:%s msg:%s' %
                                 (sheet_title, row_index, 'uk', '', row_data[index], u'id重复'))
         config[uk] = data
+
+    special_func = config.pop('special_func', None)
+    if special_func:
+        config = mapping_special_func(special_func, config)
 
     return config
 
