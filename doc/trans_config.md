@@ -25,10 +25,12 @@ only_one:               特殊需求: 原样返回, 配置只有一列和其他�
 
 #### 原先excel配置(图一)
 
-   ![原先excel配置](../images/trans_config_001.png)
+   <div align=center>
+   <img src="../images/trans_config_001.png" width = "60%" height = "80%" alt="原先excel配置" />
 
 #### 生成的lua配置(图二)
 
+   <div align="center">
    ![生成的lua配置](../images/trans_config_002.png)
    
 

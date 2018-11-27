@@ -318,7 +318,7 @@ def generate_dict_data(writeData, c_value, deep=0):
         if isinstance(k, int):
             writeData.append('\n' + '\t'*deep + '[%s]=' % k)
         elif isinstance(k, str) or isinstance(k, unicode):
-            writeData.append('\n' + '\t'*deep + '"%s"=' % k)
+            writeData.append('\n' + '\t'*deep + '%s=' % k)
         else:
             writeData.extend([k, '='])
 
@@ -332,7 +332,7 @@ def generate_dict_data(writeData, c_value, deep=0):
             writeData.append('"%s",' % v.encode('utf-8'))
         else:
             writeData.append('"%s",' % v)
-    writeData.append('\n'+'\t'*deep + '},')
+    writeData.append('\n'+'\t'*deep + '},' if deep else '\n}')
 
 
 def generate_table_data(writeData, c_value, deep=0):
@@ -360,7 +360,7 @@ def generate_lua_config(c_name, c_value):
     if not os.path.exists('config_lua'):
         os.mkdir('config_lua')
     file_lua = open('config_lua/%s.lua' % c_name, 'w')
-    writeData = [c_name, '=']
+    writeData = ['local ', c_name, '=']
     if isinstance(c_value, dict):
         generate_dict_data(writeData, c_value)
     elif isinstance(c_value, list) or isinstance(c_value, tuple) or isinstance(c_value, set):
