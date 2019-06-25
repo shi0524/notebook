@@ -3,6 +3,7 @@
 * pyhton
     * [python 性能优化](doc/python_notice.md)
     * [python dict、list 只读](doc/readonly_dict_list.md)
+    * [python inspect模块](doc/inspect.md)
 
 
 * python脚本
