@@ -1,5 +1,8 @@
 # Summary
 
+* git 使用
+    * [Git简介](doc/git_doc/git_train.md)
+
 * pyhton
     * [python 性能优化](doc/python_notice.md)
     * [python dict、list 只读](doc/readonly_dict_list.md)
