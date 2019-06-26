@@ -2,6 +2,7 @@
 
 * git 使用
     * [Git简介](doc/git_doc/git_train.md)
+    * [Git工作流](doc/git_doc/git工作流.md)
 
 * pyhton
     * [python 性能优化](doc/python_notice.md)
