@@ -1,6 +1,18 @@
 # -*- coding: utf-8 –*-
 
+import time
 import random
+
+
+def time_it(func):
+
+    def wrapper(*args, **kwargs):
+        a = time.time()
+        rc = func(*args, **kwargs)
+        b = time.time()
+        print (b - a) * 1000
+        return rc
+    return wrapper
 
 
 def swap(lyst, i, j):
@@ -11,7 +23,7 @@ def swap(lyst, i, j):
     lyst[i] = lyst[j]
     lyst[j] = temp
 
-
+@time_it
 def selection_sort(lyst):
     """ 选择排序
     """
@@ -28,7 +40,7 @@ def selection_sort(lyst):
             swap(lyst, min_index, i)
         i += 1
 
-
+@time_it
 def bubble_sort(lyst):
     """ 冒泡排序
     """
@@ -41,7 +53,7 @@ def bubble_sort(lyst):
             i += 1
         l -= 1
 
-
+@time_it
 def insertion_sort(lst):
     """ 插入排序
     """
@@ -59,33 +71,57 @@ def insertion_sort(lst):
         lyst[j + 1] = item_to_insert
         i += 1
 
+def quick_sort(lst):
+    """ 快排
+    """
+    if lst == []:
+        return []
+    first = lst[0]
+    left = []
+    right = []
+    for l in lst[1:]:
+        left.append(l) if l < first else right.append(l)
+    return quick_sort(left) + [first] + quick_sort(right)
+
 
 if __name__ == "__main__":
     r = random.Random()
-    lyst = range(10)
+    lyst = range(100000)
 
     print "*" * 50, "选择排序", "*" * 50
     r.seed('test_algorithm')
     r.shuffle(lyst)
-    print lyst
+    # print lyst
     selection_sort(lyst)
-    print lyst
+    # print lyst
     print "*" * 50, "选择排序", "*" * 50
 
     print "*" * 50, "冒泡排序", "*" * 50
     r.seed('test_algorithm')
     r.shuffle(lyst)
-    print lyst
+    # print lyst
     bubble_sort(lyst)
-    print lyst
+    # print lyst
     print "*" * 50, "冒泡排序", "*" * 50
 
     print "*" * 50, "插入排序", "*" * 50
     r.seed('test_algorithm')
     r.shuffle(lyst)
-    print lyst
+    # print lyst
     insertion_sort(lyst)
-    print lyst
+    # print lyst
     print "*" * 50, "插入排序", "*" * 50
+
+    print "*" * 50, "快速排序", "*" * 50
+    r.seed('test_algorithm')
+    r.shuffle(lyst)
+    # print lyst
+    a = time.time()
+    lyst = quick_sort(lyst)
+    b = time.time()
+    print (b - a) * 1000
+    # print lyst
+    print "*" * 50, "快速排序", "*" * 50
+
 
 
