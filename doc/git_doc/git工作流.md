@@ -57,6 +57,28 @@ git checkout dev
 git cherry-pick 9ed4114
 git checkout master
 git revert 9ed4114  # 注意revert 和 reset 的区别
+
+
+git commit --amend  使用技巧
+
+场景一
+假如你git commit了一堆代码，但是你发现本次Commit的描述信息有点随意，你可以这样：
+
+git commit --amend -m“新的提交消息”
+
+场景二
+你本来打算Commit五个文件，但是由于疏忽你Commit了四个。当然你可以再Commit一次来进行弥补这个失误。
+但是多了一次Commit，按道理它们应该在一次Commit中。git commit --amend也能帮你解决这个问题：
+
+git add 忘记提交的文件
+git commit --amend --no-edit
+
+场景三
+有些项目比较严格，对提交者的信息（author）有要求。如果你Commit的作者不规范，也可以通过git commit --amend来解决：
+
+git commit --amend --author“felord<dax@felord.cn>”
+
+尽量确保这些错误在你本地提交时修复，推送到远程时使用amend命令将会使得代码历史变得混乱。另外git commit -am可不是git commit --amend的简写。
 ```
 
 ## 参考
