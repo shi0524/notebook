@@ -43,3 +43,19 @@ def random_count_list(max_count=10000, max_value=10000, seed=None):
     count = r.randint(1, max_count)
     lst = [r.randint(0, max_value) for _ in xrange(count)]
     return lst
+
+
+def check_is_sorted(lst):
+    """ 检查 数组是否有序
+    """
+    if not lst:
+        return True if lst == [] else False
+
+    min_value = lst[0]
+
+    N = len(lst)
+    for i in range(1, N):
+        if lst[i] < min_value:
+            return False
+        min_value = lst[i]
+    return True
