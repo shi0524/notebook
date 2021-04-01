@@ -11,3 +11,4 @@
 .DS_Store
 _book
 config_lua
+node_modules
