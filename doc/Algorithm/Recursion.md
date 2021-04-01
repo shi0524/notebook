@@ -1,6 +1,8 @@
 
 ## Master 公式
 
+### master 公式只针对于递归函数并且子规模一致的情况下使用
+
 <!--<div align="center">-->
 
 ![Master公式](../../images/master_gongshi.jpg)
