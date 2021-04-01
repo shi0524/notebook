@@ -16,3 +16,6 @@
     * [excel配置生成lua配置](doc/trans_config.md)
 
 
+* 数据结构和算法(小技巧)
+    * [栈](doc/Algorithm/Stack.md)
+    * [递归](doc/Algorithm/Recursion.md)
