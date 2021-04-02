@@ -19,3 +19,10 @@
 * 数据结构和算法(小技巧)
     * [栈](doc/Algorithm/Stack.md)
     * [递归](doc/Algorithm/Recursion.md)
+    * [归并排序](doc/Algorithm/MergeSort.md)
+
+* 常见面试题(名词跳转)
+    * [对列实现栈](doc/Algorithm/Stack.md)
+    * [栈实现队列](doc/Algorithm/Stack.md)
+    * [小和问题](doc/Algorithm/MergeSort.md)
+    * [逆序对](doc/Algorithm/MergeSort.md)
