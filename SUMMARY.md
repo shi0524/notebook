@@ -20,9 +20,11 @@
     * [栈](doc/Algorithm/Stack.md)
     * [递归](doc/Algorithm/Recursion.md)
     * [归并排序](doc/Algorithm/MergeSort.md)
+    * [堆](doc/Algorithm/heap.md)
 
 * 常见面试题(名词跳转)
     * [对列实现栈](doc/Algorithm/Stack.md)
     * [栈实现队列](doc/Algorithm/Stack.md)
     * [小和问题](doc/Algorithm/MergeSort.md)
     * [逆序对](doc/Algorithm/MergeSort.md)
+    * [最大限线段重合问题(用堆实现)](doc/Algorithm/heap.md)
