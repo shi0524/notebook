@@ -1,8 +1,7 @@
 
 # 动态规划
 
-## 
-
+## 计算总的方法数
 
 ```
 给定一个数组arr，你可以在每个数字之前决定+或者-
@@ -50,4 +49,43 @@
         5. 二维动态规划空间压缩技巧
 讲解:
     大厂刷题班: 第1节 第7题 01:00:00
+```
+
+## 司机调度问题
+```
+现有司机N*2人，调度中心会将所有司机平分给A、B两个区域
+第 i 个司机去A可得收入为income[i][0]，
+第 i 个司机去B可得收入为income[i][1]，
+返回所有调度方案中能使所有司机总收入最高的方案，是多少钱
+
+思路:
+    因为是均分到两个区域, 故司机需为偶数
+    去区域A 的司机确定, 去 区域B 的也会确定
+    故可减少一个参数
+
+伪代码:
+    // index  ... 所有的司机, 往A和B区域分配
+    // 返回把 index... 司机分配完，并且最终A和B区域一样多的情况下, index ... 这些司机的收益最大是多少
+    process(int[] income, int index, int reset){
+        N = income.length
+        M = N >> 1
+        // basecase1 去A区域的司机已经满了, 剩下的全部去B区域
+        if (reset == 0){
+            return income[index][1] + process(income, index + 1, reset)
+        }
+        // basecase2 剩余的司机全部都去A区域，才能均分司机
+        if (N - index == reset){
+            return income[index][0] + process(income, index + 1, reset-1)
+        }
+        
+        // 普通情况
+        pA = income[index][0] + process(income, index + 1, reset-1)
+        pB = income[index][1] + process(income, index + 1, reset)
+        
+        return max(pA, pB);
+    }
+
+讲解:
+    大厂刷题班: 第2节 第4题 02:05:30
+
 ```
