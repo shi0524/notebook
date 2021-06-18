@@ -51,3 +51,12 @@ def count_bit1(num):
     return count
 
 
+# 统计一个数字bit位为1的个数
+def count_bit2(num):
+    count = 0
+    while num:
+        count += 1
+        num &= num - 1                  # 抹掉num最右bit位上的1  num & (num - 1)
+    return count
+
+
