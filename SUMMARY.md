@@ -38,6 +38,7 @@
 * 常见面试题(名词跳转)
     * [对列实现栈](doc/Algorithm/Stack.md)
     * [栈实现队列](doc/Algorithm/Stack.md)
+    * [固定大小数组实现队列](doc、Algorithm/StructureDesign.md)
     * [小和问题](doc/Algorithm/MergeSort.md)
     * [逆序对](doc/Algorithm/MergeSort.md)
     * [最大限线段重合问题(用堆实现)](doc/Algorithm/heap.md)

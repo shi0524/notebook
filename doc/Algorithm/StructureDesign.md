@@ -79,3 +79,45 @@ setAall:
 讲解:
     大厂刷题班: 第2节 第3题 00:54:30
 ```
+
+## 固定大小数组实现队列
+
+```
+
+思路:
+    双指针start, end 实现固定大小数组 (边界超麻烦)
+    双指针 + size    实现固定大小数组（size 将 start和end解耦掉）
+
+伪代码：
+    class ListQueue(object):
+        def __init__(limit):
+            self.limit = limit
+            self.start = 0
+            self.end = 0
+            self.size = 0
+            self.list = [0] * limit
+        
+        def isEmpty():
+            return self.size == 0
+        
+        def isFull():
+            return self.size == self.limit
+
+        def push(value):
+            if self.isFull():
+                raise Error
+            self.list[self.end] = value
+            self.end = (self.end + 1) % self.limit
+            self.size += 1
+        
+        def pop(value):
+            if self.isEmpty():
+                raise Error
+            value = self.list[self.start]
+            self.start = (self.start + 1) % self.limit
+            self.size -= 1
+            return value
+
+讲解:
+    体系学习班: 第4节 一些基础的数据结构 49:30
+```
