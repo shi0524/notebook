@@ -41,6 +41,7 @@
     * [固定大小数组实现队列](doc、Algorithm/StructureDesign.md)
     * [小和问题](doc/Algorithm/MergeSort.md)
     * [逆序对](doc/Algorithm/MergeSort.md)
+    * [左边有多少个数大于右边*2](doc/Algorithm/MergeSort.md)
     * [最大限线段重合问题(用堆实现)](doc/Algorithm/heap.md)
     * [线段覆盖点问题(用窗口实现)](doc/Algorithm/Window.md)
     * [给定目录下文件数量](doc/Algorithm/BFS.md)
