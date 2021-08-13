@@ -60,3 +60,13 @@ def count_bit2(num):
     return count
 
 
+# 统计一个数字bit位为1的个数
+def hamming_weight(num):
+    num = (num & 0x55555555) + ((num >> 1) & 0x55555555)
+    num = (num & 0x33333333) + ((num >> 2) & 0x33333333)
+    num = (num & 0x0f0f0f0f) + ((num >> 4) & 0x0f0f0f0f)
+    num = (num & 0x00ff00ff) + ((num >> 8) & 0x00ff00ff)
+    num = (num & 0x0000ffff) + ((num >> 16) & 0x0000ffff)
+    return num
+
+
